@@ -1,0 +1,927 @@
+[
+  {
+    "id": "LRNKN001",
+    "name": "Knowledge Module",
+    "learning_structure_type": "Knowledge Mindset Formation",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  },
+  {
+    "id": "LRNMT001",
+    "name": "Motivation Module",
+    "learning_structure_type": "Motivation Bridge",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  },
+  {
+    "id": "LRNPR001",
+    "name": "Procedural Module",
+    "learning_structure_type": "Procedural Skill",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+  ,
+  {
+    "id": "LRNFL001",
+    "name": "Fluency Module",
+    "learning_structure_type": "Skill Fluency",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+  ,
+  {
+    "id": "LRNBE001",
+    "name": "Behavioral Module",
+    "learning_structure_type": "Behavioral Skill",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+  ,
+  {
+    "id": "LRNLD001",
+    "name": "Leadership Module",
+    "learning_structure_type": "Leadership Decision-Making",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+  ,
+  {
+    "id": "LRNCH001",
+    "name": "Coaching Module",
+    "learning_structure_type": "Coaching Skills",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+  ,
+  {
+    "id": "LRNJR001",
+    "name": "Journey Module",
+    "learning_structure_type": "Comprehensive Journey",
+    "sections": [
+      {
+        "name": "Module Overview",
+        "fields": [
+          { "name": "Title", "type": "string", "required": true },
+          { "name": "Learning Structure Type", "type": "string", "required": true },
+          { "name": "Audience", "type": "string", "required": true },
+          { "name": "Duration", "type": "string", "required": true },
+          { "name": "Learning Objectives", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Purpose/Behavioral Outcome",
+        "fields": [
+          { "name": "Purpose Statement", "type": "string", "required": true },
+          { "name": "Behavioral Outcomes", "type": "array", "required": true },
+          { "name": "Metrics", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "Instructional Design Summary",
+        "fields": [
+          { "name": "Primary Learning Domain", "type": "string", "required": true },
+          { "name": "Frameworks Used", "type": "array", "required": true },
+          { "name": "Delivery Strategy", "type": "string", "required": true },
+          { "name": "Pedagogical Rationale", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Layout & Architecture",
+        "fields": [
+          { "name": "Section Hierarchy", "type": "array", "required": true },
+          { "name": "Wireframe Specs", "type": "string", "required": true },
+          { "name": "Viewport Rules", "type": "string", "required": true },
+          { "name": "Visual Style", "type": "object", "required": true }
+        ]
+      },
+      {
+        "name": "Copy Requirements",
+        "fields": [
+          { "name": "Headline Rules", "type": "string", "required": true },
+          { "name": "Word Limits", "type": "object", "required": true },
+          { "name": "Prompts", "type": "array", "required": false },
+          { "name": "Tone", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Component/Interaction Specs",
+        "fields": [
+          { "name": "Interactive Units", "type": "array", "required": true },
+          { "name": "Behaviors", "type": "array", "required": true },
+          { "name": "Progress Rules", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Flow Logic/Animation",
+        "fields": [
+          { "name": "Transitions", "type": "string", "required": true },
+          { "name": "Feedback Mechanisms", "type": "string", "required": true },
+          { "name": "Animation Timing", "type": "string", "required": false }
+        ]
+      },
+      {
+        "name": "Scoring/Validation Logic",
+        "fields": [
+          { "name": "Rubric", "type": "string", "required": true },
+          { "name": "Pass Rules", "type": "string", "required": true },
+          { "name": "Retry Logic", "type": "string", "required": false },
+          { "name": "Completion Triggers", "type": "array", "required": true }
+        ]
+      },
+      {
+        "name": "Accessibility Compliance",
+        "fields": [
+          { "name": "Alt Text Required", "type": "boolean", "required": true },
+          { "name": "Color Contrast", "type": "string", "required": true },
+          { "name": "Keyboard Navigation", "type": "boolean", "required": true },
+          { "name": "Reduced Motion", "type": "boolean", "required": false },
+          { "name": "Compliance Level", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Data Analytics",
+        "fields": [
+          { "name": "Events To Track", "type": "array", "required": true },
+          { "name": "Payload Structure", "type": "string", "required": true }
+        ]
+      },
+      {
+        "name": "Technical Notes",
+        "fields": [
+          { "name": "Frontend Framework", "type": "string", "required": true },
+          { "name": "Component Breakdown", "type": "array", "required": true },
+          { "name": "Libraries", "type": "array", "required": false }
+        ]
+      },
+      {
+        "name": "QA/Test Cases",
+        "fields": [
+          { "name": "Test Cases", "type": "array", "required": true },
+          { "name": "Edge Cases", "type": "array", "required": false },
+          { "name": "Accessibility Confirmation", "type": "string", "required": true }
+        ]
+      }
+    ],
+    "validation_rules": [
+      "All required fields populated",
+      "Learning objectives measurable (SMART)",
+      "Accessibility tags verified"
+    ]
+  }
+]

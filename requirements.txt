@@ -1,0 +1,7 @@
+
+fastapi==0.103.1
+uvicorn[standard]==0.23.2
+pydantic==1.10.2
+
+# Optional: if you plan to support file uploads, install python-multipart
+python-multipart==0.0.6
