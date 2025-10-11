@@ -2,28 +2,64 @@
 ai_module_platform.py
 ----------------------
 
-This file outlines a skeletal implementation of an AI‑powered instructional design platform
-as described in the Onboardian roadmap.  It uses FastAPI to expose RESTful endpoints for
-content analysis, template recommendation, blueprint generation and validation.  The actual
-integration points (Dropbox API, vector database, LLM inference) are represented as
-placeholders and should be implemented with real services when available.
+FastAPI service for the Onboardian Instructional Design AI "brain".
+Includes health check, CORS, analysis, blueprint generation, validation,
+and an optional upload endpoint (if python-multipart is installed).
+
+Endpoints:
+  GET  /health
+  POST /analyse       (UK)
+  POST /analyze       (US alias -> /analyse)
+  POST /blueprint
+  POST /validate
+  POST /upload        (only if python-multipart available)
 """
 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from typing import List, Dict
+
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import List, Dict, Optional
+
+# --------------------------------------------------------------------------------------
+# App & CORS (keep allow_origins=["*"] for easiest first run; tighten later if needed)
+# --------------------------------------------------------------------------------------
 
 app = FastAPI(title="Onboardian Instructional Design AI Platform")
 
-# ---------------------------------------------------------------------------
-# Placeholder classes and functions for integration
-# In a production system, these would connect to Dropbox, a vector database,
-# and a large language model API such as OpenAI or Cohere.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],            # TODO: replace with exact origins when ready
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
+# --------------------------------------------------------------------------------------
+# (Optional) File upload support — only if python-multipart is installed
+# --------------------------------------------------------------------------------------
+# We conditionally import UploadFile & File so the app still runs even if
+# python-multipart is not present. If available, we define /upload.
+
+try:
+    from fastapi import UploadFile, File  # type: ignore
+
+    MULTIPART_AVAILABLE = True
+except Exception:  # pragma: no cover
+    MULTIPART_AVAILABLE = False
+
+
+# --------------------------------------------------------------------------------------
+# Placeholder logic (replace with real integrations as you wire up services)
+# --------------------------------------------------------------------------------------
 
 class VectorStore:
     """Simple stub for a vector database."""
-
     def __init__(self):
         self.documents = []  # store tuples of (content, metadata)
 
@@ -40,9 +76,8 @@ vector_store = VectorStore()
 
 
 def parse_document(file_bytes: bytes, filename: str) -> str:
-    """Stub for multi‑modal content parsing.  Accepts file bytes and returns raw text."""
+    """Stub for multi-modal content parsing. Accepts file bytes and returns raw text."""
     # TODO: implement parsing for PDF, DOCX, PPTX, etc.
-    # For now, treat all uploads as UTF‑8 text
     try:
         return file_bytes.decode("utf-8")
     except Exception:
@@ -50,23 +85,22 @@ def parse_document(file_bytes: bytes, filename: str) -> str:
 
 
 def classify_content(text: str) -> Dict[str, float]:
-    """Stub for domain & structure recognition.  Returns a mapping of domains to confidence."""
+    """Stub for domain & structure recognition. Returns mapping of domains to confidence."""
     # TODO: integrate NLP models or heuristic rules
     return {"factual": 0.3, "procedural": 0.4, "conceptual": 0.3}
 
 
 def generate_objectives(text: str) -> List[str]:
-    """Stub for objective inference using an LLM.  Returns a list of SMART objectives."""
-    # TODO: call an LLM API and generate domain‑appropriate objectives
+    """Stub for objective inference. Replace with LLM call when ready."""
+    # TODO: call an LLM API and generate domain-appropriate objectives
     return [
         "Explain key concepts from the input file with 100% accuracy.",
-        "Apply the described procedures in a simulated environment with ≥85% success."
+        "Apply the described procedures in a simulated environment with ≥85% success.",
     ]
 
 
 def select_archetypes(domains: Dict[str, float]) -> List[str]:
     """Select relevant archetypes based on content domains."""
-    # Simple rule: highest score corresponds to primary archetype
     primary = max(domains, key=domains.get)
     mapping = {
         "factual": "Knowledge",
@@ -88,7 +122,7 @@ def build_blueprint(objectives: List[str], archetypes: List[str]) -> Dict:
         },
         "sections": [
             {"name": "Module Overview", "duration": "5 min"},
-            {"name": "Pre‑Assessment", "duration": "5 min"},
+            {"name": "Pre-Assessment", "duration": "5 min"},
             {"name": "Core Learning", "duration": "25 min"},
             {"name": "Application Workshop", "duration": "30 min"},
             {"name": "Assessment", "duration": "10 min"},
@@ -99,13 +133,12 @@ def build_blueprint(objectives: List[str], archetypes: List[str]) -> Dict:
 
 def validate_inputs(required_fields: Dict[str, bool]) -> bool:
     """Check that all required fields are present before generation."""
-    # In practice, this would check a fully populated data model against a template
     return all(required_fields.values())
 
 
-# ---------------------------------------------------------------------------
-# Pydantic models for API schemas
-
+# --------------------------------------------------------------------------------------
+# Pydantic request/response models
+# --------------------------------------------------------------------------------------
 
 class AnalysisRequest(BaseModel):
     content: str = Field(..., description="Raw text extracted from uploaded file")
@@ -135,22 +168,32 @@ class ValidationResponse(BaseModel):
     message: str
 
 
-# ---------------------------------------------------------------------------
-# API Endpoints
-
+# --------------------------------------------------------------------------------------
+# API endpoints
+# --------------------------------------------------------------------------------------
 
 @app.post("/analyse", response_model=AnalysisResponse)
 async def analyse_document(request: AnalysisRequest):
     """Analyse input content, classify domains, infer objectives and suggest archetypes."""
+    if not request.content or not request.content.strip():
+        raise HTTPException(status_code=400, detail="No content provided.")
     domains = classify_content(request.content)
     objectives = generate_objectives(request.content)
     archetypes = select_archetypes(domains)
     return AnalysisResponse(domains=domains, archetypes=archetypes, objectives=objectives)
 
 
+# US spelling alias — lets callers use /analyze interchangeably
+@app.post("/analyze", response_model=AnalysisResponse)
+async def analyze_alias(request: AnalysisRequest):
+    return await analyse_document(request)
+
+
 @app.post("/blueprint", response_model=BlueprintResponse)
 async def generate_blueprint(req: BlueprintRequest):
     """Generate a module blueprint given objectives and archetypes."""
+    if not req.objectives or not req.archetypes:
+        raise HTTPException(status_code=400, detail="Objectives and archetypes are required.")
     blueprint = build_blueprint(req.objectives, req.archetypes)
     return BlueprintResponse(blueprint=blueprint)
 
@@ -158,24 +201,30 @@ async def generate_blueprint(req: BlueprintRequest):
 @app.post("/validate", response_model=ValidationResponse)
 async def validate_module(req: ValidationRequest):
     """Validate that all required fields are present before module generation."""
-    valid = validate_inputs(req.required_fields)
+    valid = validate_inputs(req.required_fields or {})
     msg = "All required inputs provided." if valid else "Missing required fields; generation blocked."
     return ValidationResponse(valid=valid, message=msg)
 
 
-@app.post("/upload", response_model=AnalysisResponse)
-async def upload_file(file: UploadFile = File(...)):
-    """Endpoint to accept file uploads, parse content and run analysis."""
-    contents = await file.read()
-    text = parse_document(contents, file.filename)
-    if not text:
-        raise HTTPException(status_code=400, detail="Unable to parse uploaded file")
-    domains = classify_content(text)
-    objectives = generate_objectives(text)
-    archetypes = select_archetypes(domains)
-    return AnalysisResponse(domains=domains, archetypes=archetypes, objectives=objectives)
+# Optional upload endpoint if python-multipart is installed
+if MULTIPART_AVAILABLE:
+    @app.post("/upload", response_model=AnalysisResponse)
+    async def upload_file(file: UploadFile = File(...)):  # type: ignore[name-defined]
+        """Accept a file upload, parse content, and run analysis."""
+        contents = await file.read()
+        text = parse_document(contents, file.filename)
+        if not text:
+            raise HTTPException(status_code=400, detail="Unable to parse uploaded file")
+        domains = classify_content(text)
+        objectives = generate_objectives(text)
+        archetypes = select_archetypes(domains)
+        return AnalysisResponse(domains=domains, archetypes=archetypes, objectives=objectives)
 
 
+# --------------------------------------------------------------------------------------
+# Local dev entrypoint (Railway/Render/etc. use the Procfile)
+# --------------------------------------------------------------------------------------
 if __name__ == "__main__":
     import uvicorn
+    # Matches Procfile defaults if you run locally
     uvicorn.run(app, host="0.0.0.0", port=8000)
